@@ -1,0 +1,7 @@
+
+    {% autoescape off %}
+    Hi {{ user.first_name }},
+    You've received this email because your email address was used for registering an ITCanteen account.
+    Please follow this link to confirm your account and start using our website.
+    http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+    {% endautoescape %}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        {#  FONT#}
+      @import url('https://fonts.googleapis.com/css?family=Quicksand');
+      @import url('https://fonts.googleapis.com/css?family=Kanit');
+
+
+      *{
+          font-family: 'Quicksand', sans-serif;
+      }
+      html,body{
+          margin:0;
+          height:100%;
+          overflow:hidden;
+          background-image: url("/static/images/bg.jpg");
+          background-size: cover;
+      }
+      .bg{
+          min-height:100%;
+          min-width:100%;
+          display: block;
+          height:auto;
+          width:auto;
+          object-fit: cover;
+          position:absolute;
+          background-attachment: fixed;
+      }
+      .bg-color{
+          background-color: #1d2124;
+      }
+      {#.content{#}
+      {#    margin-top: 5%;#}
+      {#}#}
+        nav{
+        z-index: 950;
+        box-shadow: 0 2px 4px -1px rgba(0,0,0,0.15);
+        }
+      .navbar-brand{
+          margin-left: 3%;
+      }
+      .split {
+          height: 100%;
+          position: absolute;
+          top: 0;
+          overflow-x: hidden;
+        }
+
+        .left {
+          left: 0;
+          width: 40%;
+          background-color: rgb(255,255,255);
+        }
+
+        .left h1{
+          padding-top: -50%;
+        }
+
+        .goleft{
+          position: absolute;
+          top: 30%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: left;
+          z-index: 900;
+        }
+
+        .goleft a{
+            padding-top: 5%;
+        }
+
+        .right {
+          width: 100%;
+          right: 0;
+        }
+
+        .goright{
+          position: absolute;
+          top: 30%;
+          left: 75%;
+          transform: translate(-30%, -50%);
+          text-align: right;
+        }
+
+        .centered {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        }
+
+        .centered img {
+          width: 150px;
+          border-radius: 50%;
+        }
+
+  </style>
+
+  </head>
+
+  <body>
+{#    <nav class="navbar navbar-expand-lg navbar-light bg-light">#}
+{#                <a class="navbar-brand" href="#">#}
+{#                    <img src="{% static "images/logo5.png" %}" width="auto" height="30" style="margin-top: 3%; margin-bottom: 3%" alt="">#}
+{#                </a>#}
+{#            <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#                <ul class="navbar-nav ml-auto" style="margin-right:3%">#}
+{#                  <li class="nav-item active">#}
+{#                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>#}
+{#                  </li>#}
+{#                  <li class="nav-item">#}
+{#                    <a class="nav-link" href="#">Link</a>#}
+{#                  </li>#}
+{#                    <li class="nav-item">#}
+{#                    <a class="nav-link" href="#">Link</a>#}
+{#                  </li>#}
+{#                    <li class="nav-item">#}
+{#                    <a class="nav-link" href="#">Link</a>#}
+{#                  </li>#}
+{#                </ul>#}
+{#            </div>#}
+{#    </nav>#}
+
+
+    <div class="split left">
+      <div class="goleft">
+            {% block body %}
+            {% block content %}
+            {% endblock %}
+            {% endblock %}
+            {% block extra_body %}
+            {% endblock %}
+      </div>
+    </div>
+
+
+    <div class="split right">
+      <div class="goright">
+        <h2 style="font-size: 5em; font-family: 'Kanit', sans-serif; margin-bottom: 5%; color:white">
+            ยินดีต้อนรับสู่<br>IT CANTEEN
+        </h2>
+        <p style="font-family: 'Kanit'; color: #dd8733; letter-spacing: 4px ">ซื้อ | ตรวจสอบ | ติดตาม</p>
+      </div>
+    </div>
+        <h2 style="font-size: 5em; font-family: 'Kanit', sans-serif; color:rgba(255,255,255,0.05); margin-left: 70%; transform: translate(-1em, 4.25em);">QUEING APP</h2>
+
+{#    <div class="container-fluid">#}
+{#    <div class="row">#}
+{#        <div class="col-md-5 content">#}
+{#            {% block body %}#}
+{#            {% block content %}#}
+{#            {% endblock %}#}
+{#            {% endblock %}#}
+{#            {% block extra_body %}#}
+{#            {% endblock %}#}
+{#        </div>#}
+{#        <div class="col-md-7">#}
+{#            <img class="bg" src="/static/images/login_bg.jpg" alt=""/>#}
+{#        </div>#}
+{#    </div>#}
+{#    </div>#}
+  <script>startApp();</script>
+  </body>
+</html>

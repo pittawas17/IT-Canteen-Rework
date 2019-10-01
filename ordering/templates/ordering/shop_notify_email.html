@@ -1,0 +1,16 @@
+
+    {% autoescape off %}
+    New order!!!
+    You got new order from {{ user.userprofile }}
+    Order detail:
+        - Menu: {{ menu }}
+        - Special requirement: {{ special_requirement }}{% if menu.menu_type == "01" %}{% if price == menu.special_price %}
+        - Size: พิเศษ{% else %}
+        - Size: ปกติ{% endif %}{% elif menu.menu_type == "02" %}{% if price == menu.hot_price %}
+        - Type: Hot{% elif price == menu.cold_price %}
+        - Type: Cold{% elif price == menu.frappe_price %}
+        - Type: Frappe{% endif %}{% endif %}
+        - Total: {{ price }} Baht
+
+    Order on: {{ orderDT }}
+    {% endautoescape %}

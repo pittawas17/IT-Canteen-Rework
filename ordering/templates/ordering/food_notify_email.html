@@ -1,0 +1,9 @@
+
+    {% autoescape off %}
+    Hi {{ user }}, your order is cooking.
+    Order detail:
+        - Menu: {{ menu }}
+        - From: {{ shop }}
+        - Total: {{ price }} Baht
+    Please come to {{ shop }} to take your food as soon as you can.
+    {% endautoescape %}

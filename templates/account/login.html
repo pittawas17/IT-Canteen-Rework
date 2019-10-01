@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% extends "account/base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{#    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1">#}
+    <title>Log in </title>
+    <script>
+    $(document).ready(function() {
+      // Execute some code here
+    });
+  </script>
+</head>
+
+<body>
+<div id="fb-root">
+<div class="login">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+
+            {% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+            {% block content %}
+
+            <h1 style="font-size: 2.5em; font-family: 'Kanit', sans-serif; margin-top: 250px;margin-bottom: 5%">{% trans "เข้าสู่ระบบ" %}</h1>
+                    {% get_providers as socialaccount_providers %}
+                    {% if socialaccount_providers %}
+                    <p style="margin-bottom: 60px">{% blocktrans with site.name as site_name %}Please sign in with one
+                    of your existing third party accounts.{% endblocktrans %}</p>
+
+                    <div class="socialaccount_ballot">
+                      <ul class="socialaccount_providers" style="padding: 0;">
+                          {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                      </ul>
+                    </div>
+                    {% include "socialaccount/snippets/login_extra.html" %}
+                    {% endif %}
+
+            {% endblock %}
+        {#    <form class="login" method="POST" action="{% url 'account_login' %}">#}
+        {#      {% csrf_token %}#}
+        {#      {{ form.as_p }}#}
+        {#      {% if redirect_field_value %}#}
+        {#      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />#}
+        {#      {% endif %}#}
+        {##}
+        {#      <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>#}
+        {#    </form>#}
+
+
+            </div>
+
+            <div class="col-md-6">
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

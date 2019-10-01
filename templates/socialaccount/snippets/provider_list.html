@@ -1,0 +1,30 @@
+{% load socialaccount %}
+
+{% get_providers as socialaccount_providers %}
+
+{% for provider in socialaccount_providers %}
+{% if provider.id == "openid" %}
+{% for brand in provider.get_brands %}
+<li>
+  <a title="{{brand.name}}"
+     class="socialaccount_provider {{provider.id}} {{brand.id}}"
+     href="{% provider_login_url provider.id openid=brand.openid_url process=process %}"
+     >{{brand.name}}</a>
+</li>
+{% endfor %}
+{% endif %}
+  <a title="{{provider.name}}" class="socialaccount_provider {{provider.id}}"
+     href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}" style="margin-left: auto;text-decoration: none">
+      {% if provider.name == 'Facebook' %}
+          <div class="shadow" style="background-color: dodgerblue;width: 300px;height: 46px;border-radius: 9px;color:
+          white;text-decoration: none;margin: 0 auto 40px auto"><span style="width: 46px;height: 46px;
+          background-image: url('/static/images/facebook_logo.png'); background-size: cover;display: inline-block;
+          vertical-align: middle;"></span><span style="margin: 0 auto">เข้าสู่ระบบด้วย Facebook</span></div>
+      {% elif provider.name == 'Google' %}
+          <div class="shadow" style="background-color: white;width: 300px;height: 46px;border-radius: 9px;color: black;
+          text-decoration: none;border: 1px solid rgba(0,0,0,0.2);margin: 0 auto"><span style="width: 46px;height:
+          46px;background-image: url('/static/images/google_logo.png'); background-size: cover;display: inline-block;
+          vertical-align: middle;"></span><span style="margin: 0 auto;">เข้าสู่ระบบด้วย Google</span></div>
+      {% endif %}
+  </a>
+{% endfor %}

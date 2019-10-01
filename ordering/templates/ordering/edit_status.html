@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+.tgl {
+  display: none;
+}
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+.tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+  background: none;
+}
+.tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 4em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+.tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+.tgl + .tgl-btn:after {
+  left: 0;
+}
+.tgl + .tgl-btn:before {
+  display: none;
+}
+.tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+.tgl-light + .tgl-btn {
+  background: #f0f0f0;
+  border-radius: 2em;
+  padding: 2px;
+  transition: all 0.4s ease;
+}
+.tgl-light + .tgl-btn:after {
+  border-radius: 50%;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+.tgl-light:checked + .tgl-btn1 {
+  background: #9fd6ae;
+}
+.tgl-light:checked + .tgl-btn2 {
+  background: #ffc036;
+}
+.tgl-light:checked + .tgl-btn3 {
+  background: #da1f26;
+}
+    </style>
+</head>
+<body>
+    {% block content %}
+    <form method="POST">
+    {% csrf_token %}
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <h2>Status</h2>
+            <label class="btn btn-secondary active">
+                เปิด
+                <input class="tgl tgl-light" id="cb1" type="radio" name="options" value="01" required {% if shop.status == '01' %}checked{% endif %}>
+                <label class="tgl-btn tgl-btn1" for="cb1"></label>
+            </label>
+            <label class="btn btn-secondary">
+                เบรค
+                <input class="tgl tgl-light" id="cb2" type="radio" name="options" value="03" {% if shop.status == '01' %}checked{% endif %}>
+                <label class="tgl-btn tgl-btn2" for="cb2"></label>
+            </label>
+            <label class="btn btn-secondary">
+                ปิด
+                <input class="tgl tgl-light" id="cb3" type="radio" name="options" value="02" {% if shop.status == '01' %}checked{% endif %}>
+                <label class="tgl-btn tgl-btn3" for="cb3"></label>
+            </label>
+        </div>
+        <a href=""> save </a>
+    </form>
+{% endblock %}
+</body>
+</html>
