@@ -28,7 +28,7 @@ oauthlib==3.0.1
 opencv-contrib-python==4.1.1.26
 opencv-python==4.1.1.26
 pefile==2019.4.18
-Pillow==6.2.0
+Pillow==8.1.1
 pipenv==2018.11.26
 pycryptodome==3.9.3
 pycryptodomex==3.8.1
