@@ -34,7 +34,7 @@ pycryptodome==3.9.3
 pycryptodomex==3.8.1
 pyHook==1.5.1
 PyInstaller==3.3.1
-PyJWT==1.7.1
+PyJWT==2.4.0
 pypiwin32==223
 PySocks==1.7.1
 python-xlib==0.25
